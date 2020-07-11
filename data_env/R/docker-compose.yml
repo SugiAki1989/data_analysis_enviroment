@@ -1,0 +1,9 @@
+version: '3'
+services:
+  r-studio-server:
+    build: .
+    restart: always
+    ports:
+      - "8787:8787"
+    volumes:
+      - ~/Desktop/data_env/R/working_dir:/home/rstudio/R_mounted_dir

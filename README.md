@@ -1,1 +1,3 @@
 # data_analysis_enviroment
+
+Dockerを使ってMySQLとR StudioServerのコンテナ環境を構築し、データベースからデータを取得し、分析するための環境構築のためのスクリプト一式

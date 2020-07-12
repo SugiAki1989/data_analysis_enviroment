@@ -1,0 +1,3 @@
+mysql -uroot -pPass --local-infile=1 test_db -e "LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/data1.csv' INTO TABLE test_tbl1 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES"
+
+mysql -uroot -pPass --local-infile=1 test_db -e "LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/data2.csv' INTO TABLE test_tbl2 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES"

@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  mysql:
+    image: mysql:8.0.20
+    restart: always
+    environment:
+      MYSQL_DATABASE: test_db
+      MYSQL_ROOT_PASSWORD: Pass
+    ports:
+      - "13306:3306"
+    networks:
+      - data_analysis_network
+    volumes:
+      - ~/Desktop/data_env2/var_lib_mysql:/var/lib/mysql
+      - ~/Desktop/data_env2/init:/docker-entrypoint-initdb.d
+
+  r-studio-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.rstudio
+    restart: always
+    ports:
+      - "8787:8787"
+    networks:
+      - data_analysis_network
+    volumes:
+      - ~/Desktop/data_env2/working_dir:/home/rstudio/R_mounted_dir
+
+networks:
+  data_analysis_network:
+    external: true
